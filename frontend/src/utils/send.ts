@@ -1,7 +1,7 @@
 
 // A demo API by NLUX that connects to OpenAI
 // and returns a stream of Server-Sent events
-const demoProxyServerUrl = 'http://192.168.1.253:5333/api/production_metrics';
+const demoProxyServerUrl = 'http://27.107.47.74:5333/api/production_metrics';
 
 // Function to send query to the server and receive a stream of chunks as response
 export const send = async (
