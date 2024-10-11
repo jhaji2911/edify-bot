@@ -38,7 +38,6 @@ export const send = async (
 
         const content = textDecoder.decode(value);
         if (content) {
-            console.log('content->', JSON.parse(content).summary_response)
             return (JSON.parse(content).summary_response);
         }
     }
