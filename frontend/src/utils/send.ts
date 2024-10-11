@@ -1,15 +1,13 @@
-import { StreamSend, StreamingAdapterObserver } from '@nlux/react';
 
 // A demo API by NLUX that connects to OpenAI
 // and returns a stream of Server-Sent events
-const demoProxyServerUrl = 'https://demo.api.nlux.ai/openai/chat/stream';
+const demoProxyServerUrl = 'http://192.168.1.253:5333/api/production_metrics';
 
 // Function to send query to the server and receive a stream of chunks as response
-export const send: StreamSend = async (
+export const send = async (
     prompt: string,
-    observer: StreamingAdapterObserver,
 ) => {
-    const body = {prompt};
+    const body = {'user_prompt': prompt};
     const response = await fetch(demoProxyServerUrl, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -17,8 +15,10 @@ export const send: StreamSend = async (
     });
 
     if (response.status !== 200) {
-        observer.error(new Error('Failed to connect to the server'));
-        return;
+        const {error} = await response.json()
+        // console.log('response->', response.json())
+        // console.error(new Error('Failed to connect to the server'));
+        return error;
     }
 
     if (!response.body) {
@@ -38,9 +38,8 @@ export const send: StreamSend = async (
 
         const content = textDecoder.decode(value);
         if (content) {
-            observer.next(content);
+            console.log('content->', JSON.parse(content).summary_response)
+            return (JSON.parse(content).summary_response);
         }
     }
-
-    observer.complete();
 };
