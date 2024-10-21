@@ -1,1 +1,1 @@
-{"root":["./src/app.tsx","./src/main.tsx","./src/router.tsx","./src/vite-env.d.ts","./src/pages/chat/index.tsx","./src/pages/home/index.tsx","./src/utils/personas.ts","./src/utils/send.ts","./src/utils/setup.tsx"],"version":"5.6.3"}
+{"root":["./src/app.tsx","./src/main.tsx","./src/router.tsx","./src/vite-env.d.ts","./src/pages/chat/index.tsx","./src/pages/home/index.tsx","./src/utils/personas.ts","./src/utils/send.ts","./src/utils/setup.tsx","./src/utils/animatedwaves/index.tsx"],"errors":true,"version":"5.6.3"}

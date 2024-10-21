@@ -38,7 +38,7 @@ function Chat() {
       </Typography>
       <List>
         {chatHistory.map((chat) => (
-          <ListItem key={chat.id} button>
+          <ListItem key={chat.id}>
             <ListItemText primary={chat.message} />
           </ListItem>
         ))}
