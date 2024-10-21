@@ -24,12 +24,17 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  height: 100vh;
+  background: linear-gradient(45deg, #6969f9, #9f556a, #33958f);
+  background-size: 200% 200%;
+  animation: gradientAnimation 10s ease infinite;
 }
 
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 h1 {
   font-size: 3.2em;
   line-height: 1.1;

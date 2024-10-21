@@ -1,17 +1,17 @@
 import {useState, useCallback} from 'react';
 import {UserPersona} from '@nlux/react';
 
-const optionsSelectorStyle = {
-    backgroundColor: '#f0f0f0',
-    padding: '10px',
-    marginBottom: '10px',
-    borderRadius: '15px',
-    display: 'flex',
-    flexDirection: 'row',
-    gap: '10px',
-    alignItems: 'center',
-    justifyContent: 'center'
-};
+// const optionsSelectorStyle = {
+//     backgroundColor: '#f0f0f0',
+//     padding: '10px',
+//     marginBottom: '10px',
+//     borderRadius: '15px',
+//     display: 'flex',
+//     flexDirection: 'row',
+//     gap: '10px',
+//     alignItems: 'center',
+//     justifyContent: 'center'
+// };
 
 export const useDemoOptions = () => {
   const [ isOption1Checked, setShouldUseAssistantPersona ] = useState(true);
@@ -19,7 +19,7 @@ export const useDemoOptions = () => {
 
   const DemoOptionsComponent = useCallback(() => {
     return (
-      <div style={optionsSelectorStyle}>
+      <div>
         <label>
           <input
             type="checkbox"

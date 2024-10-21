@@ -1,0 +1,14 @@
+/* AnimatedWaves.css */
+.wave-container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 320px;
+    overflow: hidden; /* Hides overflow */
+    background-color: #0f0f2d;
+  }
+  
+  svg {
+    width: 100%;
+    height: 100%;
+  }

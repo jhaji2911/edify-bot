@@ -19,7 +19,7 @@ const redirectToChat = () => {
       </div>
       
       <div className="card">
-        <p className="read-the-docs">
+        <p className="read-the-docs" style={{color: 'black'}}>
           World’s first AI – Powered Accelerated Insight Machine
         </p>
       </div>
