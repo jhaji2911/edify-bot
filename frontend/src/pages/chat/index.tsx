@@ -29,8 +29,9 @@ function Chat() {
           <div>
             <h3>July</h3>
             {/* TODO: use chat history */}
-            <a href="">Manufacturing</a>
-            <a href="">Electricity consumption</a>
+            {chatHistory?.map((content) => (
+              <a href="">{content.message}</a>
+            ))}
           </div>
         </div>
       </div>
