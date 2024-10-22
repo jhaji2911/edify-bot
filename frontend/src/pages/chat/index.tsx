@@ -1,25 +1,65 @@
 import {
   Box,
+  FormControl,
+  FormControlLabel,
   Paper,
+  Radio,
+  RadioGroup,
 } from "@mui/material";
 import { AiChat, useAsBatchAdapter } from "@nlux/react";
 import { send } from "../../utils/send";
 import { personas } from "../../utils/personas";
 import "@nlux/themes/nova.css";
-import bluebenzLogo from '../../assets/bluebenzLogo.png'
-import './style.css'
-
+import bluebenzLogo from "../../assets/bluebenzLogo.png";
+import "./style.css";
+import { useState } from "react";
 
 function Chat() {
   const adapter = useAsBatchAdapter(send, []);
 
+  const [docType, setDocType] = useState(1);
+
   // Mock chat history for the sidebar
   const chatHistory = [
-    { id: 1, message: "What is the average delay in deliveries?" },
-    { id: 2, message: "Identify the unit with the highest energy efficiency." },
+    {
+      id: 1,
+      type: 1,
+      label: "Average Delay in supplies",
+      prompt: "What is the average delay in deliveries?",
+      icon: <span>🕣</span>,
+    },
+    {
+      id: 2,
+      type: 1,
+      label: "Unit with highest energy efficiency",
+      prompt: "Identify the unit with the highest energy efficiency.",
+      icon: <span>⚡️</span>,
+    },
+    {
+      id: 3,
+      type: 2,
+      label: "Count of employees",
+      prompt: "Give me count of male and female employees?",
+      icon: <span>1️⃣</span>,
+    },
+    {
+      id: 4,
+      type: 2,
+      label: "Average Salary",
+      prompt:
+        "How many employee of more than average salary having position as IT support?",
+      icon: <span>🙎🏻‍♂️</span>,
+    },
   ];
 
-
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+    if (value === "HR") {
+      setDocType(1);
+    } else {
+      setDocType(2);
+    }
+  };
   return (
     <div className="chat-section">
       <div className="sidebar">
@@ -29,9 +69,11 @@ function Chat() {
           <div>
             <h3>July</h3>
             {/* TODO: use chat history */}
-            {chatHistory?.map((content) => (
-              <a href="">{content.message}</a>
-            ))}
+            {chatHistory
+              ?.filter(({ type }) => type === docType)
+              ?.map((content) => (
+                <a href="">{content.prompt}</a>
+              ))}
           </div>
         </div>
       </div>
@@ -39,21 +81,19 @@ function Chat() {
         {/* Main Chat Section */}
         <div className="chat-box-header">
           <img src={bluebenzLogo} alt="Logo" width={200} />
-          {/* <div>
+          <div>
             <FormControl>
               <RadioGroup
                 row
                 sx={{
-                  color: 'black'
+                  color: "black",
                 }}
+                value={docType === 1 ? "HR" : "Manufacturing"}
+                onChange={handleChange}
                 aria-labelledby="demo-row-radio-buttons-group-label"
                 name="row-radio-buttons-group"
               >
-                <FormControlLabel
-                  value="HR"
-                  control={<Radio />}
-                  label="HR"
-                />
+                <FormControlLabel value="HR" control={<Radio />} label="HR" />
                 <FormControlLabel
                   value="Manufacturing"
                   control={<Radio />}
@@ -61,26 +101,10 @@ function Chat() {
                 />
               </RadioGroup>
             </FormControl>
-          </div> */}
+          </div>
         </div>
         <div className="chat-box-body">
-          <Box
-            // component="main"
-            sx={
-              {
-                //   flexGrow: 1,
-                //   display: "flex",
-                //   flexDirection: "column",
-                //   justifyContent: "space-between",
-                //   p: 3,
-                //   width: {
-                //     sm: `calc(100% - ${drawerWidth}px)`,
-                //     padding: "0",
-                //     paddingLeft: "2rem",
-                //   },
-              }
-            }
-          >
+          <Box>
             {/* <Toolbar /> */}
             {/* Chat Area */}
             <Paper
@@ -95,20 +119,13 @@ function Chat() {
             >
               <AiChat
                 conversationOptions={{
-                  conversationStarters: [
-                    {
-                      icon: <span>🕣</span>,
-                      label: "Average Delay in supplies",
-                      prompt:
-                        "What is the average delay in deliveries across all suppliers.",
-                    },
-                    {
-                      icon: <span>⚡️</span>,
-                      label: "Unit with highest energy efficiency",
-                      prompt:
-                        "Identify the unit with the highest energy efficiency.",
-                    },
-                  ],
+                  conversationStarters: chatHistory
+                    ?.filter(({ type }) => type === docType)
+                    ?.map((content) => ({
+                      icon: content.icon,
+                      label: content.label,
+                      prompt: content.prompt,
+                    })),
                 }}
                 adapter={adapter}
                 personaOptions={personas}
