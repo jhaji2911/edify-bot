@@ -25,7 +25,8 @@ a:hover {
 body {
   margin: 0;
   height: 100vh;
-  background: linear-gradient(45deg, #6969f9, #9f556a, #33958f);
+  /* background: linear-gradient(45deg, #6969f9, #9f556a, #33958f); */
+  background: #E2E2E2;
   background-size: 200% 200%;
   animation: gradientAnimation 10s ease infinite;
 }

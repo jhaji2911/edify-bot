@@ -55,3 +55,242 @@
     color: #888;
   }
   
+
+  #banner_sec1 {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+#banner_sec1 .videobg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0 8% 11% 16%;
+    line-height: 1.5;
+    text-align: center;
+    background-color: #0c1a29de;
+}
+
+#banner_sec1 .bg-video-wrap .thumb_Vid {
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 600px;
+    z-index: -1
+}
+
+#banner_sec1 .header_content {
+    padding-top: 20px
+}
+
+#banner_sec1 h2 {
+    color: #fff;
+    letter-spacing: 2px;
+    font-size: 50px;
+    line-height: 1.3;
+    font-weight: 600;
+    padding-bottom: 10px;
+    text-transform: uppercase
+}
+
+#banner_sec1 p {
+    font-size: 30px;
+    line-height: 32px;
+    padding: 15px 20px 25px;
+    /* color: #fff */
+}
+
+/* centered section css start  */
+.home-section {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(0, -50%);
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .home-content {
+      position: relative;
+      z-index: 2;
+      background-color: #fff;
+      height: 650px;
+      width: 630px;
+      border-top-left-radius: 150px;
+      border-bottom-left-radius: 150px;
+      .center-content {
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        h1 {
+          font-size: 2em;
+          line-height: 1.2;
+          font-weight: 600;
+          padding: 40px 40px;
+        }
+        .go-btn {
+          padding: 2px;
+          background: linear-gradient(to right, #FF00AF, #047AF6, #FF9000);
+          border-radius: 15px;
+          div {
+            font-size: 20px;
+            background: #ffffff;
+            padding: 10px 50px;
+            border-radius: 12px;
+            font-weight: 700;
+            .gradient-text {
+              margin: 0;
+              background: linear-gradient(to right, #FF00AF, #047AF6, #FF9000);
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+            }
+          }
+        }
+      }
+  }
+}
+
+@media(max-width: 5120px) {
+    #banner_sec1 .bg-video-wrap .thumb_Vid {
+        height: 1100px
+    }
+
+    #banner_sec1 .videobg {
+        padding: 0 8% 11% 16%
+    }
+}
+
+@media(max-width: 2560px) {
+    #banner_sec1 .videobg {
+        padding: 0 8% 23% 16%
+    }
+}
+
+@media(max-width: 1920px) {
+    #banner_sec1 .bg-video-wrap .thumb_Vid {
+        height: 99.3vh;
+    }
+
+    #banner_sec1 .videobg {
+        padding: 0 6% 15% 14%
+    }
+
+}
+
+
+@media(max-width: 1680px) {
+
+    #banner_sec1 .bg-video-wrap .thumb_Vid {
+        height: 640px
+    }
+
+    #banner_sec1 .videobg {
+        padding: 0 8% 15% 16%
+    }
+
+}
+
+@media(max-width: 1080px) {
+    #banner_sec1 h2 {
+        font-size: 32px
+    }
+}
+
+@media(max-width: 920px) {
+    #banner_sec1 .bg-video-wrap .thumb_Vid {
+        height: 500px
+    }
+
+    #banner_sec1 .videobg {
+        padding: 0 5% 15%
+    }
+
+    #banner_sec1 h2 {
+        font-size: 32px
+    }
+}
+
+@media(max-width: 800px) {
+    #banner_sec1 .bg-video-wrap .thumb_Vid {
+        height: 460px
+    }
+
+    #banner_sec1 h2 {
+        font-size: 28px
+    }
+}
+
+@media(max-width: 600px) {
+    #banner_sec1 p {
+        padding: 0 10px 10px;
+        font-size: 18px
+    }
+}
+
+@media(max-width: 540px) {
+    #banner_sec1 .videobg {
+        padding: 0 5% 20%
+    }
+
+    #banner_sec1 h2 {
+        font-size: 28px
+    }
+
+    #banner_sec1 .bg-video-wrap .thumb_Vid {
+        height: 400px
+    }
+}
+
+@media(max-width: 480px) {
+
+    #banner_sec1 p {
+        padding: 0
+    }
+
+    #banner_sec1 p {
+        font-size: 14px;
+        line-height: normal
+    }
+
+    #banner_sec1 h2 {
+        font-size: 18px;
+        line-height: normal
+    }
+}
+
+@media(max-width: 380px) {
+    #banner_sec1 p {
+        font-size: 12px;
+        line-height: normal
+    }
+}
+
+@media(max-width: 320px) {
+    #banner_sec1 .bg-video-wrap .thumb_Vid {
+        height: 550px
+    }
+
+    #banner_sec1 .videobg {
+        padding: 0 5% 30%
+    }
+
+    #banner_sec1 h2 {
+        font-size: 16px;
+        line-height: normal
+    }
+}
+
+@media(max-width: 300px) {
+    #banner_sec1 h2 {
+        font-size: 14px;
+        line-height: normal
+    }
+}
