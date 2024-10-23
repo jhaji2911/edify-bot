@@ -17,7 +17,7 @@ import { useState } from "react";
 function Chat() {
   const adapter = useAsBatchAdapter(send, []);
 
-  const [docType, setDocType] = useState(1);
+  const [docType, setDocType] = useState(+(localStorage.getItem('type') ?? 1));
 
   // Mock chat history for the sidebar
   const chatHistory = [
@@ -55,9 +55,12 @@ function Chat() {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
     if (value === "HR") {
-      setDocType(1);
-    } else {
+      localStorage.setItem("type", "2");
       setDocType(2);
+    } else {
+      localStorage.setItem("type", "1");
+
+      setDocType(1);
     }
   };
   return (
@@ -88,16 +91,16 @@ function Chat() {
                 sx={{
                   color: "black",
                 }}
-                value={docType === 1 ? "HR" : "Manufacturing"}
+                value={docType === 1 ? "Manufacturing" : "HR"}
                 onChange={handleChange}
                 aria-labelledby="demo-row-radio-buttons-group-label"
                 name="row-radio-buttons-group"
               >
-                <FormControlLabel value="HR" control={<Radio />} label="HR" />
+                <FormControlLabel value="Manufacturing" control={<Radio />} label="Manufacturing" />
                 <FormControlLabel
-                  value="Manufacturing"
+                  value="HR"
                   control={<Radio />}
-                  label="Manufacturing"
+                  label="HR"
                 />
               </RadioGroup>
             </FormControl>
@@ -118,6 +121,7 @@ function Chat() {
               }}
             >
               <AiChat
+              key={docType}
                 conversationOptions={{
                   conversationStarters: chatHistory
                     ?.filter(({ type }) => type === docType)

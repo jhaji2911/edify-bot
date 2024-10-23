@@ -1,12 +1,16 @@
 
 // A demo API by NLUX that connects to OpenAI
 // and returns a stream of Server-Sent events
-const demoProxyServerUrl = 'http://27.107.47.74:5333/api/production_metrics';
 
 // Function to send query to the server and receive a stream of chunks as response
 export const send = async (
     prompt: string,
 ) => {
+
+    const type  = localStorage.getItem('type');
+
+    const demoProxyServerUrl = `http://27.107.47.74:5333/api/${type === '2' ? 'employee_metrics' : 'production_metrics'}`;
+
     const body = {'user_prompt': prompt};
     const response = await fetch(demoProxyServerUrl, {
         method: 'POST',
